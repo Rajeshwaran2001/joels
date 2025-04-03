@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Nalina</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 10px;
+            z-index: 1;
+        }
+
+        #chatbot-icon {
+            width: 80px;   
+            height: 80px;
+            border-radius: 100%;
+            position: relative;
+            background-image: url('https://png.pngtree.com/png-vector/20220714/ourmid/pngtree-chat-bot-icon-talk-service-robot-vector-png-image_37946310.png');
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .popup-icons {
+            display: none;
+            position: absolute;
+            bottom: 60px;
+            right: 10px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .popup-icons a {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .icon-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .icon-button i {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .icon-button:hover {
+            color: #1c4b07;
+        }
+
+        .show-popup {
+            display: block;
+        }
+
+        .body {
+            background-color: #ffffff; 
+        }
+    </style>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="56x56"
+      href="assets/icon.png"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap.min.css" type="text/css" media="all"/>
+    <!-- animate CSS -->
+    <link rel="styleshee" href="assets/animate.css" type="text/css" media="all"/>
+    <!-- font-awesome CSS -->
+    <link rel="stylesheet" href="assets/all.min.css" type="text/css" media="all"/>
+    <!-- font-flaticon CSS -->
+    <link rel="stylesheet" href="assets/flaticon.css" type="text/css" media="all"/>
+    <!-- theme-default CSS -->
+    <link rel="stylesheet" href="assets/theme-default.css" type="text/css" media="all"/>
+    <!-- meanmenu CSS -->
+    <link rel="stylesheet" href="assets/meanmenu.min.css" type="text/css" media="all"/>
+    <!-- venobox CSS -->
+    <link rel="stylesheet" href="assets/venobox.css" type="text/css" media="all"/>
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="assets/bootstrap-icons.css" type="text/css" media="all"/>
+    <!-- magnific popup css -->
+    <link rel="stylesheet" href="assets/magnific-popup.css"type="text/css"media="all"/>
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/style.css"type="text/css"media="all"/>
+    <link rel="stylesheet" href="assets/odometer-theme-default.css" />
+    <link rel="stylesheet" href="assets/aos.css" />
+    <!-- responsive CSS -->
+    <link rel="stylesheet" href="assets/responsive.css" type="text/css"media="all"/>
+    <link rel="stylesheet" href="assets/swiper-bundle.css" />
+    <!-- modernizr js -->
+    <script src="assets/modernizr-3.5.0.min.js"></script>
+  </head>
+  <body>
+    <!-- loder -->
+    <div id="loading">
+      <div id="loading-center">
+        <div id="loading-center-absolute">
+          <div class="object" id="object_four"></div>
+          <div class="object" id="object_three"></div>
+          <div class="object" id="object_two"></div>
+          <div class="object" id="object_one"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Curser Pointer -->
+    <!-- <div class="cursor"></div>
+    <div class="cursor2"></div> -->
+
+    <!--==================================================-->
+    <!-- Start lovebird Main Menu Area -->
+    <!--==================================================-->
+    <div id="sticky-header" class="lovebird_nav_manu">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-2">
+            <div class="logo cursor-scale">
+              <a class="logo_img" href="index.html" title="Nalina">
+                <img src="assets/nalina.png" alt="logo"/ style="width: 75px; height: 40px; background-color: transparent;">
+              </a>
+              <a class="main_sticky" href="index.html" title="Nalina">
+                <img src="assets/nalina.png" alt="astute" / style="width: 75px; height: 40px; background-color: transparent;">      
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <nav class="lovebird_menu">
+              <ul class="nav_scroll">
+                <li>
+                  <a class="cursor-scale" href="index.html">Home</a>
+                </li>
+                <li>
+                  <a class="cursor-scale" href="about.html">About</a> 
+                </li>
+                <li>
+                  <a class="cursor-scale" href="service.html">Service</a> 
+                </li>
+                <li><a class="cursor-scale" href="contact.html">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-lg-2">
+            <div class="header-btn">
+              <a href="contact.html">services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- lovebird Mobile Menu Area -->
+    <div class="mobile-menu-area sticky d-sm-block d-md-block d-lg-none">
+      <div class="mobile-menu">
+        <nav class="lovebird_menu">
+          <ul class="nav_scroll">
+            <li>
+              <a class="cursor-scale" href="index.html">Home</a> 
+            </li>
+            <li>
+              <a class="cursor-scale" href="about.html">About</a>
+            </li>
+            <li>
+              <a class="cursor-scale" href="service.html">Service</a>
+            </li> 
+            <li><a class="cursor-scale" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!--==================================================-->
+    <!-- End lovebird Main Menu Area -->
+    <!--==================================================-->
+
+
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+
+
+
+    <!--==================================================-->
+    <!--start lovebird slider area-->
+    <!--==================================================-->
+
+    <section class="lovebird-slider-area">
+      <div class="lovebird-slider-wrapper">
+        <div class="swiper-container lovebird-slider-active">
+          <div class="swiper-wrapper">
+            <!-- slide item 1 -->
+            <div class="swiper-slide">
+              <div class="lovebird-slider-height">
+                <div class="lovebird-slider-bg"></div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xl-12">
+                      <div class="lovebird-slider-content text-center">
+                        <div class="lovebird-slider-title-box cursor-scale">
+                          <span class="lovebird-slider-sub-title"
+                            >Save the date for the wedding of June 10,2024</span
+                          >
+                          <h1 class="lovebird-slider-title cursor-scale">
+                            Priya & Karthick
+                          </h1>
+                        </div>
+                        <div class="lovebird-slider-btn">
+                          <div class="slider-btn">
+                            <a href="about-us.html">wedding</a>
+                          </div>
+                          <!-- <div class="slider-video-btn">
+                            <a
+                              class="video-vemo-icon venobox vbox-item"
+                              data-vbtype="youtube"
+                              data-autoplay="true"
+                              href="https://www.youtube.com"
+                              ><i class="fa-solid fa-play"></i
+                            ></a>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- slide item 2 -->
+            <div class="swiper-slide">
+              <div class="lovebird-slider-height">
+                <div class="lovebird-slider-bg2"></div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="lovebird-slider-content text-center">
+                        <div class="lovebird-slider-title-box cursor-scale">
+                          <span class="lovebird-slider-sub-title"
+                            >Save the date for the wedding of June 10, 2024
+                          </span>
+                          <h1 class="lovebird-slider-title cursor-scale">
+                            Sneha & Vicky
+                          </h1>
+                        </div>
+                        <div class="lovebird-slider-btn">
+                          <div class="slider-btn">
+                            <a href="about-us.html">services</a>
+                          </div>
+                          <!-- <div class="slider-video-btn">
+                            <a
+                              class="video-vemo-icon venobox vbox-item"
+                              data-vbtype="youtube"
+                              data-autoplay="true"
+                              href="https://www.youtube.com/watch?v=Wx48y_fOfiY"
+                              ><i class="fa-solid fa-play"></i 
+                            ></a> 
+                          </div>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- slide item 3 -->
+            <div class="swiper-slide">
+              <div class="lovebird-slider-height">
+                <div class="lovebird-slider-bg2"></div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="lovebird-slider-content text-center">
+                        <div class="lovebird-slider-title-box cursor-scale">
+                          <span class="lovebird-slider-sub-title"
+                            >Save the date for the wedding of June 10, 2024
+                          </span>
+                          <h1 class="lovebird-slider-title cursor-scale">
+                            Divya & Santhosh
+                          </h1>
+                        </div>
+                        <div class="lovebird-slider-btn">
+                          <div class="slider-btn">
+                            <a href="about-us.html">photoshoot</a>
+                          </div>
+                          <!-- <div class="slider-video-btn">
+                            <a
+                              class="video-vemo-icon venobox vbox-item"
+                              data-vbtype="youtube"
+                              data-autoplay="true"
+                              href="https://www.youtube.com/watch?v=Wx48y_fOfiY"
+                              ><i class="fa-solid fa-play"></i 
+                            ></a> 
+                          </div>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <!-- <div class="lovebird-slider-arrow-box">
+          <button class="slider-prev" tabindex="0" aria-label="Previous slide">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="slider-next" tabindex="0" aria-label="Next slide">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div> -->
+      </div>
+    </section>
+    <!--==================================================-->
+    <!--end lovebird slider area-->
+    <!--==================================================-->
+          <br><br><br><br>
+   
+
+    <!--==================================================-->
+    <!--start  lovebird counter area-->
+    <!--==================================================-->
+    <div class="coutner-area">
+      <div class="container">
+        <div class="row counter align-items-center">
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="single-counter-misson cursor-scale" data-aos="fade-up">
+              <div class="counter-content">
+                <h6 class="counter-sub-title">MISSING DAYS TO</h6>
+                <h2 class="counter-title">Our Wedding</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="counter-single-box text-left text-md-left cursor-scale" data-aos="fade-up">
+              <div class="odometer-wrapper counter-box-title" data-count="359">
+                <h1 class="odometer"></h1>
+              </div>
+              <div class="counter-desc">
+                <p>DAYS</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="counter-single-box text-md-left cursor-scale" data-aos="fade-up">
+              <div class="odometer-wrapper counter-box-title" data-count="23">
+                <h1 class="odometer"></h1>
+              </div>
+              <div class="counter-desc">
+                <p>HOURS</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="counter-single-box text-left text-md-left text-sm-left cursor-scale" data-aos="fade-up">
+              <div class="odometer-wrapper counter-box-title" data-count="59">
+                <h1 class="odometer"></h1>
+              </div>
+              <div class="counter-desc">
+                <p>MINUTES</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="counter-single-box text-left text-md-left text-sm-left cursor-scale" data-aos="fade-up">
+              <div class="odometer-wrapper counter-box-title" data-count="48">
+                <h1 class="odometer"></h1>
+              </div>
+              <div class="counter-desc">
+                <p>SECONDS</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--==================================================-->
+    <!--End lovebird counter area-->
+    <!--==================================================-->
+
+    <!--==================================================-->
+    <!--start lovebird wedding event area-->
+    <!--==================================================-->
+     <div class="wedding-event-area">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section-title text-center cursor-scale" data-aos="flip-up">
+              <!-- <div class="section-sub-title">
+                <h5>Wedding Menu</h5>
+              </div> -->
+              <div class="section-main-title cursor-scale">
+                <h1>About us</h1>
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--==================================================-->
+        <!--End lovebird wedding event area-->
+    <!--==================================================-->
+    <!--==================================================-->
+    <!--End lovebird wedding event area-->
+    <!--==================================================-->
+
+    
+
+   
+
+    
+
+    <!--==================================================-->
+    <!--start lovebird gallery area-->
+    <!--==================================================-->
+    <div class="gallery-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section-title text-center cursor-scale" data-aos="flip-up">
+              <div class="section-sub-title">
+                <h5>Gallery of Love</h5>
+              </div>
+              <div class="section-main-title cursor-scale">
+                <h1>Picture Perfect Moments</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery__wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="gallery__thumb-box" data-aos="zoom-in">
+                <div class="gallery__thumb"  >
+                  <a href="title1.html">
+                    <img class="w-100" src="assets/gallery-thu.png"alt=""/> 
+                    <!-- <div class="image-title">Title-1</div> -->
+                  </a>
+                  <!-- <a
+                    class="popup-image"
+                    href="assets/gallery-thu.png"
+                    ><img
+                      class="w-100"
+                      src="assets/gallery-thu.png"
+                      alt=""
+                    />                   
+                  </a> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="gallery__thumb-box" data-aos="zoom-in">
+                <div class="gallery__thumb">
+                  <a href="title2.html">
+                    <img class="w-100" src="assets/gallery-thu2.png"alt=""/> 
+                    <!-- <div class="image-title">Title-1</div> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="gallery__thumb-box" data-aos="zoom-in">
+                <div class="gallery__thumb">
+                  <a href="title3.html">
+                    <img class="w-100" src="assets/gallery-thu3.png"alt=""/> 
+                    <!-- <div class="image-title">Title-1</div> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="gallery__thumb-box" data-aos="zoom-in">
+                <div class="gallery__thumb">
+                  <a href="title4.html">
+                    <img class="w-100" src="assets/gallery-thu4.png"alt=""/> 
+                    <!-- <div class="image-title">Title-1</div> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="gallery__thumb-box" data-aos="zoom-in">
+                <div class="gallery__thumb">
+                  <a href="title5.html">
+                    <img class="w-100" src="assets/gallery-thu5.png"alt=""/> 
+                    <!-- <div class="image-title">Title-1</div> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="gallery__thumb-box" data-aos="zoom-in">
+                <div class="gallery__thumb">
+                  <a href="title6.html">
+                    <img class="w-100" src="assets/gallery-thu6.png"alt=""/> 
+                    <!-- <div class="image-title">Title-1</div> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="gallery__thumb-box" data-aos="zoom-in">
+                <div class="gallery__thumb">
+                  <a href="title7.html">
+                    <img class="w-100" src="assets/gallery-thu7.png"alt=""/> 
+                    <!-- <div class="image-title">Title-1</div> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="gallery__thumb-box" data-aos="zoom-in">
+                <div class="gallery__thumb">
+                  <a href="title8.html">
+                    <img class="w-100" src="assets/gallery-thu8.png"alt=""/> 
+                    <!-- <div class="image-title">Title-1</div> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--==================================================-->
+    <!--End lovebird gallery area-->
+    <!--==================================================-->
+
+
+     <!--==================================================-->
+    <!--start lovebird testimonial area-->
+    <!--==================================================-->
+    <div class="testimonial-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="swiper testi-active cursor-scale" data-aos="zoom-in-left">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="testi-box" data-aos="fade-up">
+                    <div class="testi-single-box">
+                      <div class="autor-rating">
+                        <!-- <ul class="testi-rating">
+                          <li><i class="bi bi-star-fill"></i></li>
+                          <li><i class="bi bi-star-fill"></i></li>
+                          <li><i class="bi bi-star-fill"></i></li>
+                          <li><i class="bi bi-star-fill"></i></li>
+                          <li><i class="bi bi-star-fill"></i></li>
+                        </ul> -->
+                      </div>
+                      <div class="testi-content">
+                        <p class="testi-desc">
+                          You have always been someone I can count on, and I
+                          hope you know that I'll always be here for you.<br />
+                          I can't wait to see what the future holds for you and
+                          your partner Christin.
+                        </p>
+                        <div class="testi-author">
+                          <img
+                            src="assets/testi-autor.png"
+                            alt="img"
+                          />
+                        </div>
+                        <h3 class="testi-user-name">
+                          Fariska mandon<span>Bridesmanid</span>
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="testi-box" data-aos="fade-up">
+                    <div class="testi-single-box">
+                      <div class="autor-rating">
+                        <!-- <ul class="testi-rating">
+                          <li><i class="bi bi-star-fill"></i></li>
+                          <li><i class="bi bi-star-fill"></i></li>
+                          <li><i class="bi bi-star-fill"></i></li>
+                          <li><i class="bi bi-star-fill"></i></li>
+                          <li><i class="bi bi-star-fill"></i></li>
+                        </ul> -->
+                      </div>
+                      <div class="testi-content">
+                        <p class="testi-desc">
+                          You have always been someone I can count on, and I
+                          hope you know that I'll always be here for you.<br />
+                          I can't wait to see what the future holds for you and
+                          your partner Christin.
+                        </p>
+                        <div class="testi-author">
+                          <img
+                            src="assets/testi-autor.png"
+                            alt="img"
+                          />
+                        </div>
+                        <h3 class="testi-user-name">
+                          Fariska mandon<span>Bridesmanid</span>
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lovebird-testi-arrow-box">
+                <button
+                  class="testi-prev"
+                  tabindex="0"
+                  aria-label="Previous slide"
+                >
+                  <i class="fa-solid fa-angle-left"></i>
+                </button>
+                <button class="testi-next" tabindex="0" aria-label="Next slide">
+                  <i class="fa-solid fa-angle-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--==================================================-->
+    <!--End lovebird testimonial area-->
+    <!--==================================================-->
+
+    <!--==================================================-->
+    <!--start lovebird contact area-->
+    <!--==================================================-->
+    <div class="contact-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section-title text-center cursor-scale" data-aos="fade-up">
+              <div class="section-sub-title">
+                <h5>GET IN TOUCH</h5>
+              </div>
+              <div class="section-main-title cursor-scale">
+                <h1>Confirmation at Marriage</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <form action="https://formspree.io/f/myyleorq" method="POST">
+            <div class="row form">
+              <div class="col-lg-6">
+                <div class="form-box">
+                  <input
+                    type="text"
+                    name="Name"
+                    placeholder="Name"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-box">
+                  <input
+                    type="Email"
+                    name="Email"
+                    placeholder="Email"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-box">
+                  <input
+                    type="text"
+                    name="Address"
+                    placeholder="Address"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-box">
+                  <input
+                    type="text"
+                    name="Phone"
+                    placeholder="Phone"
+                    required=""
+                  />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-box">
+                  <label>message</label>
+                  <textarea
+                    name="massage"
+                    id="massage"
+                    cols="10"
+                    rows="10"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="submit-button">
+                  <button type="submit">sumit now</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--==================================================-->
+    <!--End lovebird contact area-->
+    <!--==================================================-->
+
+   
+   <!-- chatbot -->
+   <div class="chatbot" id="chatbot" style="border-radius: 10px;">
+       <div id="chatbot-icon"></div>
+       <div class="popup-icons" id="popup-icons">
+          <a href="https://wa.me/+9360514241" class="icon-button">
+             <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="tel:+9360514241" class="icon-button">
+            <i class="fa-solid fa-phone"></i>
+          </a>
+          <a href="sms:+9360514241" class="icon-button">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+       </div>
+    </div> 
+
+
+    
+
+    
+
+    <!--==================================================-->
+    <!-- Start lovebird Footer Area -->
+    <!--==================================================-->
+
+    <div class="footer-area">
+      <center>
+      <a href="index.html">
+        <img src="assets/nalina.png" style="width: 200px; height: 100px;" alt="logo"
+      /></a></center>
+    </div>
+     
+         
+
+    <!--==================================================-->
+    <!-- end lovebird Footer Area -->
+    <!--==================================================-->
+
+
+
+  </div>
+</div>
+
+    <!--==================================================-->
+    <!-- Start scrollup section Area -->
+    <!--==================================================-->
+
+    <div id="progress" class="progress hide">
+      <div id="progress-value"></div>
+    </div>
+
+    <!--==================================================-->
+    <!-- Start scrollup section Area -->
+    <!--==================================================-->
+
+    <script src="assets/jquery-3.6.2.min.js"></script>
+
+    <script src="assets/gsap.min.js"></script>
+
+    <script src="assets/ScrollSmoother.min.js"></script>
+
+    <script src="assets/ScrollToPlugin.min.js"></script>
+
+    <script src="assets/ScrollTrigger.min.js"></script>
+
+    <script src="assets/aos.js"></script>
+
+    <script src="assets/odometer.min.js"></script>
+
+    <script type="text/javascript" src="assets/bootstrap.min.js"></script>
+
+    <script src="assets/imagesloaded.pkgd.min.js"></script>
+
+    <script src="assets/venobox.js"></script>
+
+    <script src="assets/venobox.min.js"></script>
+
+    <script type="text/javascript" src="assets/jquery.meanmenu.js"></script>
+
+    <script type="text/javascript" src="assets/jquery.scrollUp.js"></script>
+
+    <script src="assets/appear.js"></script>
+
+    <script type="text/javascript" src="assets/magnific-popup-js.js"></script>
+
+    <script src="assets/jquery.barfiller.js"></script>
+
+    <script src="assets/swiper-bundle.js"></script>
+
+    <script src="assets/theme.js"></script>
+
+    <script src="assets/my.js"></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+
+    <script>
+       document.getElementById('chatbot-icon').addEventListener('click', function() {
+         var popupIcons = document.getElementById('popup-icons');
+         popupIcons.classList.toggle('show-popup');
+        });
+     </script>
+
+  </body>
+</html>
